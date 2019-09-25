@@ -7,7 +7,7 @@ require __DIR__ . '/../inicio-html.php'; ?>
         Nova categoria
     </a>
 
-    <table id="lista" class="table">
+    <table id="lista" class="table table-sm">
         <thead class="thead-light">
             <tr> 
                 <th class="pt-2 pb-2" scope="col">Nome</th>
