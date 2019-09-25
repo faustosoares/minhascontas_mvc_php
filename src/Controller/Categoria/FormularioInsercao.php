@@ -1,6 +1,6 @@
 <?php
 
-namespace FBMS\Contas\Controller;
+namespace FBMS\Contas\Controller\Categoria;
 
 use FBMS\Contas\Helper\RenderizadorDeHtmlTrait;
 use Nyholm\Psr7\Response;
@@ -10,17 +10,14 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class FormularioInsercao implements RequestHandlerInterface
 {
-    private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager) 
-    {
-        $this-> entityManager = $entityManager;
-    }
-
+    use RenderizadorDeHtmlTrait;
+    
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        //var_dump($this->entityManager);
-        $html = "teste";
+        $html = $this->renderizaHtml('categorias/formulario.php', [
+            'titulo' => 'Nova categoria'
+        ]);
         return new Response(200, [], $html);
     }
 }

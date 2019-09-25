@@ -29,16 +29,19 @@ class Categoria
         return $this->id;
     }
 
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
     public function getNome(): string
     {
         return $this->nome;
     }
 
-    public function setNome(string $nome): self
+    public function setNome(string $nome): void
     {
         $this->nome = $nome;
-
-        return $this;
     }
 
     public function getDescricao(): string
@@ -46,10 +49,10 @@ class Categoria
         return $this->descricao;
     }
 
-    public function setDescricao(string $descricao): self
+    public function setDescricao(string $descricao): void
     {
         $this->descricao = $descricao;
-
-        return $this;
     }
+
+   
 }

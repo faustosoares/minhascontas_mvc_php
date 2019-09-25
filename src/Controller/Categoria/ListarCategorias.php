@@ -1,6 +1,6 @@
 <?php
 
-namespace FBMS\Contas\Controller;
+namespace FBMS\Contas\Controller\Categoria;
 
 use Nyholm\Psr7\Response;
 use FBMS\Contas\Entity\Categoria;
@@ -14,7 +14,7 @@ use FBMS\Contas\Helper\RenderizadorDeHtmlTrait;
 class ListarCategorias implements RequestHandlerInterface
 {
     use RenderizadorDeHtmlTrait;
-
+    
     private $repositorioDeCategorias;
 
     public function __construct(EntityManagerInterface $entityManager)
@@ -28,6 +28,7 @@ class ListarCategorias implements RequestHandlerInterface
         $html = $this->renderizaHtml('categorias/listar-categorias.php', [
             'categorias' => $this->repositorioDeCategorias->findAll(),
             'titulo' => 'Lista de categorias',
+            'tituloEntidade' => 'categoria'
         ]);
 
         return new Response(200, [], $html);

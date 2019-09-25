@@ -1,26 +1,48 @@
 <?php
 
 require __DIR__ . '/../inicio-html.php'; ?>
+
     
-    <a href="/novo-curso" class="btn btn-primary mb-2">
+    <a href="/nova-categoria" class="btn btn-primary mb-2">
         Nova categoria
     </a>
-    <ul class="list-group">
-        <?php foreach ( $categorias as $categoria ): ?>
-            <li class="list-group-item d-flex justify-content-between">
-                <?= $categoria->getDescricao(); ?>
 
+    <table class="table ">
+        <thead class="thead-light">
+            <tr> 
+                <th class="pt-2 pb-2" scope="col">Nome</th>
+                <th class="pt-2 pb-2" scope="col">Descrição</th>
+                <th class="p-2" scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ( $categorias as $categoria ): ?>
+        <tr class="linha-tabela">
+            <td class="align-middle"><?= $categoria->getNome();?></td>
+            <td class="align-middle"><?= $categoria->getDescricao();?></td>
+            <td class="controles-tabela">
                 <span>
-                    <a href="/alterar-curso?id=<?= $categoria->getId(); ?>" class="btn btn-info btn-sm">
+                    <a href="/alterar-categoria?id=<?= $categoria->getId(); ?>" class="btn btn-info btn-sm">
                         Alterar
                     </a>
-                    <a href="/excluir-curso?id=<?= $categoria->getId(); ?>" class="btn btn-danger btn-sm">
+            
+                    <!--
+                    <a href="/excluir-categoria?id=<?= $categoria->getId(); ?>" class="btn btn-danger btn-sm">
+                        Excluir
+                    </a>
+                    -->
+
+                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ExemploModalCentralizado"
+                        onclick="setaDadosModal(<?= $categoria->getId(); ?>, '<?= $categoria->getNome(); ?>' )">
                         Excluir
                     </a>
                 </span>
-            </li>
+            </td>
+        </tr>
         <?php endforeach; ?>
-    </ul>
+        
+        </tbody>
+    </table>
 <?php
-
+require __DIR__ . '/modal-excluir-categorias.php'; 
 require __DIR__ . '/../fim-html.php';
