@@ -28,7 +28,8 @@ class ListarCategorias implements RequestHandlerInterface
         $html = $this->renderizaHtml('categorias/listar-categorias.php', [
             'categorias' => $this->repositorioDeCategorias->findAll(),
             'titulo' => 'Lista de categorias',
-            'tituloEntidade' => 'categoria'
+            'tituloEntidade' => 'categoria',
+            'rotaExclusao' => '/excluir-categoria?id='
         ]);
 
         return new Response(200, [], $html);

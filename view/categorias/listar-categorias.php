@@ -7,7 +7,7 @@ require __DIR__ . '/../inicio-html.php'; ?>
         Nova categoria
     </a>
 
-    <table class="table ">
+    <table id="lista" class="table">
         <thead class="thead-light">
             <tr> 
                 <th class="pt-2 pb-2" scope="col">Nome</th>
@@ -33,7 +33,7 @@ require __DIR__ . '/../inicio-html.php'; ?>
                     -->
 
                     <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ExemploModalCentralizado"
-                        onclick="setaDadosModal(<?= $categoria->getId(); ?>, '<?= $categoria->getNome(); ?>' )">
+                        onclick="setaDadosModal(<?= $categoria->getId(); ?>, '<?= $categoria->getNome(); ?>', '<?= $rotaExclusao ?>' )">
                         Excluir
                     </a>
                 </span>
