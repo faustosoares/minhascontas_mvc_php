@@ -11,8 +11,8 @@
         <p id="textoModal"></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-        <a id="link-exclusao" class="btn btn-success">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+        <a id="link-exclusao" class="btn btn-primary">
             Sim                        
         </a>
       </div>

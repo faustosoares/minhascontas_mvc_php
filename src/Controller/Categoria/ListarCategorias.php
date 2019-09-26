@@ -30,6 +30,7 @@ class ListarCategorias implements RequestHandlerInterface
             'titulo' => 'Lista de categorias',
             'tituloEntidade' => 'categoria',
             'rotaExclusao' => '/excluir-categoria?id='
+        
         ]);
 
         return new Response(200, [], $html);

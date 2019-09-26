@@ -2,10 +2,18 @@
 
 require __DIR__ . '/../inicio-html.php'; ?>
 
+    <input type="hidden" id="menu" name="menu" value="collapseTwo"/> 
+    <input type="hidden" id="item" name="item" value="categoria"/>
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+       <h1 id="entidade" class="h3 mb-0 text-gray-800">Categoria</h1>
+       <a href="/nova-categoria" class="btn btn-primary mb-2">
+            <i class="fa fa-plus"></i>
+            Nova categoria
+       </a>
+    </div>
     
-    <a href="/nova-categoria" class="btn btn-primary mb-2">
-        Nova categoria
-    </a>
 
     <table id="lista" class="table table-sm">
         <thead class="thead-light">
@@ -23,17 +31,13 @@ require __DIR__ . '/../inicio-html.php'; ?>
             <td class="controles-tabela">
                 <span>
                     <a href="/alterar-categoria?id=<?= $categoria->getId(); ?>" class="btn btn-info btn-sm">
+                        <i class="fa fa-pen"></i>
                         Alterar
                     </a>
             
-                    <!--
-                    <a href="/excluir-categoria?id=<?= $categoria->getId(); ?>" class="btn btn-danger btn-sm">
-                        Excluir
-                    </a>
-                    -->
-
                     <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#ExemploModalCentralizado"
                         onclick="setaDadosModal(<?= $categoria->getId(); ?>, '<?= $categoria->getNome(); ?>', '<?= $rotaExclusao ?>' )">
+                        <i class="fa fa-times"></i>
                         Excluir
                     </a>
                 </span>
