@@ -37,6 +37,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Componentes do Sistema:</h6>
         <a id="categoria" class="collapse-item" href="listar-categorias">Categoria</a>
+        <a id="pessoa" class="collapse-item" href="listar-pessoas">Pessoa</a>
         <a class="collapse-item" href="cards.html">Cartão</a>
         <a class="collapse-item" href="cards.html">Compra</a>
         <a class="collapse-item" href="cards.html">Fatura</a>
@@ -102,7 +103,7 @@
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        <button class="rounded-circle border-0" id="sidebarToggle" onClick="javascript:ativarItem()"></button>
     </div>
 
 </ul>
