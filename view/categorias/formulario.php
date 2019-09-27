@@ -14,6 +14,9 @@
         </div>
     <?php  endif; ?>
 
+    <!-- Mensagens de validacao de formulario -->
+    <?php include __DIR__ . '/../mensagem-validacao-form.php'; ?>
+
     <form action="/salvar-categoria<?= isset($categoria) ? '?id=' . $categoria->getId() : ''; ?>" method="post">
         <div class="form-group">
             <div class="form-group col-md-6">

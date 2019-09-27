@@ -21,6 +21,26 @@ class Persistencia implements RequestHandlerInterface
         $this->entityManager = $entityManager;
     }
 
+    public function validarCampo(string $campo, int $id): ResponseInterface
+    {         
+        if (!is_null($id) && $id !== false) {
+            // $rotaRedirecionamento = '/alterar-categoria?id='.$id;
+            $redirecionamentoFormulario = new Response(302, ['Location' => '/alterar-categoria?id='.$id]);
+        } else {
+            // $rotaRedirecionamento = '/nova-categoria';
+            $redirecionamentoFormulario = new Response(302, ['Location' => '/nova-categoria']);
+        }  
+        if (empty($campo)) {
+            $this->defineMensagemValidacao('danger','Campo nome deve ser preenchido');
+            // return $redirecionamentoFormulario;
+            //return true;
+        }
+        //return false;
+        
+        //return $redirecionamentoFormulario;
+        return new Response(302, ['Location' => '/nova-categoria']);
+    }
+
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $nome = filter_var(
@@ -42,7 +62,18 @@ class Persistencia implements RequestHandlerInterface
             FILTER_VALIDATE_INT
         );
 
-        //Tipo mensagem do Trait
+       
+        
+        
+        $this->validarCampo($nome, $id);
+
+
+              
+        // if ($this->validarCampo($nome, 'danger', $id)) {
+        //     return $redirecionamentoFormulario;
+        // }
+
+        //Tipo mensagem do Trait (Mensagem execucao crud)
         $tipo = 'success';
 
         if (!is_null($id) && $id !== false) {
