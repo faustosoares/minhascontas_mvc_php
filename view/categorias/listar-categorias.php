@@ -13,7 +13,9 @@ require __DIR__ . '/../inicio-html.php'; ?>
             Nova categoria
        </a>
     </div>
-    
+
+    <!-- Mensagens de execucao de crud -->
+    <?php include __DIR__ . '/../mensagem-crud.php'; ?>
 
     <table id="lista" class="table table-sm">
         <thead class="thead-light">
