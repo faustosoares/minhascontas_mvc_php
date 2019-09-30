@@ -21,24 +21,22 @@ class Persistencia implements RequestHandlerInterface
         $this->entityManager = $entityManager;
     }
 
-    public function validarCampo(string $campo, int $id): ResponseInterface
+    public function campoEstaValido(string $campo, string $nomeCampo): bool
     {         
-        if (!is_null($id) && $id !== false) {
-            // $rotaRedirecionamento = '/alterar-categoria?id='.$id;
-            $redirecionamentoFormulario = new Response(302, ['Location' => '/alterar-categoria?id='.$id]);
-        } else {
-            // $rotaRedirecionamento = '/nova-categoria';
-            $redirecionamentoFormulario = new Response(302, ['Location' => '/nova-categoria']);
-        }  
         if (empty($campo)) {
-            $this->defineMensagemValidacao('danger','Campo nome deve ser preenchido');
-            // return $redirecionamentoFormulario;
-            //return true;
+            $this->defineMensagemValidacao('danger','Campo ' . $nomeCampo . ' deve ser preenchido');
+            return false;
         }
-        //return false;
-        
-        //return $redirecionamentoFormulario;
-        return new Response(302, ['Location' => '/nova-categoria']);
+        return true;
+    }
+
+    public function definirRota(int $id): string
+    {
+        if (!is_null($id) && $id !== false && $id !== 0) {
+            return '/alterar-categoria?id=' . $id;
+        } else {
+            return  '/nova-categoria';
+        }  
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -62,16 +60,16 @@ class Persistencia implements RequestHandlerInterface
             FILTER_VALIDATE_INT
         );
 
-       
+        //Validação Campos Formulário
+        $rotaRedirecionamentoValidacao = $this->definirRota($id);
         
-        
-        $this->validarCampo($nome, $id);
+        if (!$this->campoEstaValido($nome, 'Nome')) {
+            return new Response(302, ['Location' => $rotaRedirecionamentoValidacao]);
+        };
 
-
-              
-        // if ($this->validarCampo($nome, 'danger', $id)) {
-        //     return $redirecionamentoFormulario;
-        // }
+        if (!$this->campoEstaValido($descricao, 'Descrição')) {
+            return new Response(302, ['Location' => $rotaRedirecionamentoValidacao]);
+        };
 
         //Tipo mensagem do Trait (Mensagem execucao crud)
         $tipo = 'success';
