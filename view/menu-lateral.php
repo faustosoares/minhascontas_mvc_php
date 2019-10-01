@@ -38,7 +38,7 @@
         <h6 class="collapse-header">Componentes do Sistema:</h6>
         <a id="categoria" class="collapse-item" href="listar-categorias">Categoria</a>
         <a id="pessoa" class="collapse-item" href="listar-pessoas">Pessoa</a>
-        <a class="collapse-item" href="cards.html">Cartão</a>
+        <a id="cartao" class="collapse-item" href="listar-cartoes">Cartão</a>
         <a class="collapse-item" href="cards.html">Compra</a>
         <a class="collapse-item" href="cards.html">Fatura</a>
         </div>

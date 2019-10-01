@@ -6,6 +6,7 @@ use Nyholm\Psr7\Response;
 use FBMS\Contas\Entity\Pessoa;
 use Psr\Http\Message\ResponseInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Common\Collections\Collection;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use FBMS\Contas\Helper\RenderizadorDeHtmlTrait;

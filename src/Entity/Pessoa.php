@@ -2,6 +2,9 @@
 
 namespace FBMS\Contas\Entity;
 
+use FBMS\Contas\Entity\Cartao;
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity
  */
@@ -13,27 +16,31 @@ class Pessoa
      * @Column(type="integer")
      */
     private $id;
-
     /**
      * @Column(type="string")
      */
     private $nome;
-
     /**
      * @Column(type="string")
      */
     private $nomeUsuario;
-
     /**
      * @Column(type="string")
      */
     private $senhaUsuario;
-
     /**
      * @Column(type="string")
      */
     private $email;
+    /**
+     * @OneToMany(targetEntity="Cartao", mappedBy="titular")
+     */    
+    private $cartoes;
 
+    public function __construct()
+    {
+        $this->cartoes = new ArrayCollection();
+    }
     
     public function getId(): int
     {
@@ -52,7 +59,7 @@ class Pessoa
         return $this->nome;
     }
 
-    public function setNome($nome): self
+    public function setNome(string $nome): self
     {
         $this->nome = $nome;
 
@@ -64,7 +71,7 @@ class Pessoa
         return $this->nomeUsuario;
     }
 
-    public function setNomeUsuario($nomeUsuario): self
+    public function setNomeUsuario(string $nomeUsuario): self
     {
         $this->nomeUsuario = $nomeUsuario;
 
@@ -76,7 +83,7 @@ class Pessoa
         return $this->senhaUsuario;
     }
 
-    public function setSenhaUsuario($senhaUsuario): self
+    public function setSenhaUsuario(string $senhaUsuario): self
     {
         $this->senhaUsuario = $senhaUsuario;
 
@@ -88,10 +95,26 @@ class Pessoa
         return $this->email;
     }
 
-    public function setEmail($email): self
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
+        return $this;
+    }
+
+    public function getCartoes(): Collection
+    {
+        return $this->cartoes;
+    }
+
+    public function addCartao(Cartao $cartoes): self
+    {
+        if ($this->cartoes->contains($cartao)) {
+            return $this;
+        }
+
+        $this->cartoes->add($cartao);
+       
         return $this;
     }
 }
