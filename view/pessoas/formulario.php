@@ -4,15 +4,9 @@
     <input type="hidden" id="item" name="item" value="pessoa"/>
     
     <!-- Page Heading -->
-    <?php if (!is_null($pessoa)) : ?>
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Alterar Pessoa</h1>
-        </div>
-    <?php else: ?>
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Nova Pessoa</h1>
-        </div>
-    <?php  endif; ?>
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800"><?= $titulo; ?></h1>
+    </div>
 
     <!-- Mensagens de validacao de formulario -->
     <?php include __DIR__ . '/../mensagem-validacao-form.php'; ?>

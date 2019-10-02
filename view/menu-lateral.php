@@ -39,7 +39,7 @@
         <a id="categoria" class="collapse-item" href="listar-categorias">Categoria</a>
         <a id="pessoa" class="collapse-item" href="listar-pessoas">Pessoa</a>
         <a id="cartao" class="collapse-item" href="listar-cartoes">Cartão</a>
-        <a class="collapse-item" href="cards.html">Compra</a>
+        <a id="compra" class="collapse-item" href="listar-compras">Compra</a>
         <a class="collapse-item" href="cards.html">Fatura</a>
         </div>
     </div>

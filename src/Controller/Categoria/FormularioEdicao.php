@@ -41,7 +41,7 @@ class FormularioEdicao implements RequestHandlerInterface
 
         $html = $this->renderizaHtml('categorias/formulario.php',[
             'categoria' => $categoria,
-            'titulo' => 'Alterar categoria' . $categoria->getNome()
+            'titulo' => 'Alterar categoria: ' . $categoria->getNome()
         ]);
 
         return new Response(200, [], $html);

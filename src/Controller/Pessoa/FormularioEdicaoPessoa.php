@@ -42,7 +42,7 @@ class FormularioEdicaoPessoa implements RequestHandlerInterface
 
         $html = $this->renderizaHtml('pessoas/formulario.php',[
             'pessoa' => $pessoa,
-            'titulo' => 'Alterar pessoa' . $pessoa->getNome()
+            'titulo' => 'Alterar pessoa: ' . $pessoa->getNome()
         ]);
 
         return new Response(200, [], $html);
