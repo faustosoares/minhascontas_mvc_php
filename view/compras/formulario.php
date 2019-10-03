@@ -6,6 +6,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800"><?= $titulo; ?></h1>
+       
     </div>
 
     <!-- Mensagens de validacao de formulario -->
@@ -57,7 +58,7 @@
                         id="data"
                         name="data"
                         class="form-control"
-                        value="<?= isset($compra) ? $compra->getData() : ''; ?>">
+                        value="<?= isset($compra) ? $compra->getDataFormulario() : ''; ?>">
                 </div>
 
                 <div class="form-group col-md-4">

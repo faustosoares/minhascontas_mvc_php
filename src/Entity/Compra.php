@@ -121,7 +121,12 @@ class Compra
 
     public function getData(): string
     {
-        return $this->data->format('d-m-Y');
+        return $this->data->format('d/m/Y');
+    }
+
+    public function getDataFormulario(): string
+    {
+        return $this->data->format('Y-m-d');
     }
 
     public function setData(DateTime $data): self
