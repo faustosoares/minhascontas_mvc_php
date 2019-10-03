@@ -53,7 +53,7 @@ class PersistenciaCompra implements RequestHandlerInterface
 
         $valor = filter_var(
             $request->getParsedBody()['valor'],
-            FILTER_VALIDATE_FLOAT
+            FILTER_SANITIZE_STRING
         );
 
         $numeroParcelas = filter_var(
@@ -81,10 +81,14 @@ class PersistenciaCompra implements RequestHandlerInterface
             FILTER_VALIDATE_INT
         );
 
+        //Tratando valor vindo do formulario
+        $valorSemPonto = str_replace('.','',$valor);
+        $valorEmFloat = floatval(str_replace(',','.',$valorSemPonto));
+
         //Dados básicos da compra
         $compra = new Compra();
         $compra->setDescricao($descricao);
-        $compra->setValor($valor);
+        $compra->setValor($valorEmFloat);
         $compra->setNumeroParcelas($numeroParcelas);
         $compra->setNumeroParcelasEmFaturas(0); //default por enquanto
 

@@ -27,11 +27,17 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="valor">Valor</label>
-                    <input type="text"
-                        id="valor"
-                        name="valor"
-                        class="form-control"
-                        value="<?= isset($compra) ? $compra->getValor() : ''; ?>">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+
+                        <input type="text"
+                            id="valor"
+                            name="valor"
+                            class="form-control"
+                            value="<?= isset($compra) ? str_replace('.',',',$compra->getValor()) : ''; ?>">
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
@@ -121,4 +127,5 @@
         </div>
     </form>
 
+    
 <?php include __DIR__ . '/../fim-html.php'; ?>

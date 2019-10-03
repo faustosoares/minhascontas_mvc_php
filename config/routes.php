@@ -6,17 +6,17 @@ use FBMS\Contas\Controller\Cartao\ListarCartoes;
 use FBMS\Contas\Controller\Compra\ListarCompras;
 use FBMS\Contas\Controller\Pessoa\ListarPessoas;
 use FBMS\Contas\Controller\Cartao\ExclusaoCartao;
-
+use FBMS\Contas\Controller\Compra\ExclusaoCompra;
 use FBMS\Contas\Controller\Pessoa\ExclusaoPessoa;
 use FBMS\Contas\Controller\Categoria\Persistencia;
 use FBMS\Contas\Controller\Cartao\PersistenciaCartao;
 use FBMS\Contas\Controller\Compra\PersistenciaCompra;
 use FBMS\Contas\Controller\Pessoa\PersistenciaPessoa;
-
 use FBMS\Contas\Controller\Categoria\FormularioEdicao;
 use FBMS\Contas\Controller\Categoria\ListarCategorias;
 use FBMS\Contas\Controller\Categoria\FormularioInsercao;
 use FBMS\Contas\Controller\Cartao\FormularioEdicaoCartao;
+use FBMS\Contas\Controller\Compra\FormularioEdicaoCompra;
 use FBMS\Contas\Controller\Pessoa\FormularioEdicaoPessoa;
 use FBMS\Contas\Controller\Cartao\FormularioInsercaoCartao;
 use FBMS\Contas\Controller\Compra\FormularioInsercaoCompra;
@@ -43,7 +43,9 @@ return [
 
     '/listar-compras' => ListarCompras::class,
     '/nova-compra' => FormularioInsercaoCompra::class,
-    '/salvar-compra' => PersistenciaCompra::class
+    '/salvar-compra' => PersistenciaCompra::class,
+    '/alterar-compra' => FormularioEdicaoCompra::class,
+    '/excluir-compra' => ExclusaoCompra::class
     
     
     

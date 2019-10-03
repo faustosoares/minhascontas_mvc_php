@@ -25,6 +25,7 @@ require __DIR__ . '/../inicio-html.php'; ?>
                 <th class="pt-2 pb-2" scope="col">Parcelas</th>
                 <th class="pt-2 pb-2" scope="col">Data</th>
                 <th class="pt-2 pb-2" scope="col">Cartão</th>
+                <th class="pt-2 pb-2" scope="col">Comprador</th>
                 <th class="p-2" scope="col"></th>
             </tr>
         </thead>
@@ -32,14 +33,26 @@ require __DIR__ . '/../inicio-html.php'; ?>
         <?php foreach ( $compras as $compra ): ?>
         <tr class="linha-tabela">
             <td class="align-middle"><?= $compra->getDescricao();?></td>
-            <td class="align-middle"><?= $compra->getValor();?></td>
+            <td class="align-middle">
+                <?php
+                    $preco = explode('.',$compra->getValor());
+                    if (is_null($preco[1])) {
+                        echo str_replace('.',',',$compra->getValor()) . ',00'; 
+                    } elseif (strlen($preco[1]) == 1) {
+                        echo str_replace('.',',',$compra->getValor()) . '0'; 
+                    } else {
+                        echo str_replace('.',',',$compra->getValor());
+                    }
+                ?>
+            </td>
             <td class="align-middle"><?= $compra->getNumeroParcelas();?></td>
             <td class="align-middle"><?= $compra->getData();?></td>
             <td class="align-middle"><?= $compra->getCartao()->getBandeira() . ' - ' . $compra->getCartao()->getInstituicaoFinanceira();?></td>
+            <td class="align-middle"><?php $nomeCompleto = explode(' ', $compra->getPessoa()->getNome()); echo $nomeCompleto[0];  ?></td>
 
             <td class="controles-tabela">
                 <span>
-                    <a href="/alterar-pessoa?id=<?= $compra->getId(); ?>" class="btn btn-info btn-sm">
+                    <a href="/alterar-compra?id=<?= $compra->getId(); ?>" class="btn btn-info btn-sm">
                         <i class="fa fa-pen"></i>
                         Alterar
                     </a>

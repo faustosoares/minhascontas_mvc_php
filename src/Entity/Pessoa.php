@@ -3,6 +3,7 @@
 namespace FBMS\Contas\Entity;
 
 use FBMS\Contas\Entity\Cartao;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**

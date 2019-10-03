@@ -32,6 +32,11 @@
 
     <script type="text/javascript" src="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.js"></script>
     <script type="text/javascript" src="js/paginacao-tabela.js"></script>
+
+    <!-- Mascara Monetaria -->
+    <!-- <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>            -->
+    <script src="js/jquery.maskMoney.min.js" type="text/javascript"></script>
+    <script src="js/mascara-monetaria.js"></script>
     
 </body>
 </html>
