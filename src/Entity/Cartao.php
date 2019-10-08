@@ -97,4 +97,9 @@ class Cartao
 
         return $this;
     }
+
+    public function getNomeTitular(): string
+    {
+        return $this->getTitular()->getNome();
+    }
 }

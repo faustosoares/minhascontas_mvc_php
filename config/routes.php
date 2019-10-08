@@ -2,24 +2,29 @@
 
 
 use FBMS\Contas\Controller\Categoria\Exclusao;
+use FBMS\Contas\Controller\Fatura\ListarFatura;
 use FBMS\Contas\Controller\Cartao\ListarCartoes;
 use FBMS\Contas\Controller\Compra\ListarCompras;
 use FBMS\Contas\Controller\Pessoa\ListarPessoas;
 use FBMS\Contas\Controller\Cartao\ExclusaoCartao;
 use FBMS\Contas\Controller\Compra\ExclusaoCompra;
+use FBMS\Contas\Controller\Fatura\ExclusaoFatura;
 use FBMS\Contas\Controller\Pessoa\ExclusaoPessoa;
 use FBMS\Contas\Controller\Categoria\Persistencia;
 use FBMS\Contas\Controller\Cartao\PersistenciaCartao;
 use FBMS\Contas\Controller\Compra\PersistenciaCompra;
+use FBMS\Contas\Controller\Fatura\PersistenciaFatura;
 use FBMS\Contas\Controller\Pessoa\PersistenciaPessoa;
 use FBMS\Contas\Controller\Categoria\FormularioEdicao;
 use FBMS\Contas\Controller\Categoria\ListarCategorias;
 use FBMS\Contas\Controller\Categoria\FormularioInsercao;
 use FBMS\Contas\Controller\Cartao\FormularioEdicaoCartao;
 use FBMS\Contas\Controller\Compra\FormularioEdicaoCompra;
+use FBMS\Contas\Controller\Fatura\FormularioEdicaoFatura;
 use FBMS\Contas\Controller\Pessoa\FormularioEdicaoPessoa;
 use FBMS\Contas\Controller\Cartao\FormularioInsercaoCartao;
 use FBMS\Contas\Controller\Compra\FormularioInsercaoCompra;
+use FBMS\Contas\Controller\Fatura\FormularioInsercaoFatura;
 use FBMS\Contas\Controller\Pessoa\FormularioInsercaoPessoa;
 
 return [
@@ -45,7 +50,13 @@ return [
     '/nova-compra' => FormularioInsercaoCompra::class,
     '/salvar-compra' => PersistenciaCompra::class,
     '/alterar-compra' => FormularioEdicaoCompra::class,
-    '/excluir-compra' => ExclusaoCompra::class
+    '/excluir-compra' => ExclusaoCompra::class,
+
+    '/listar-faturas' => ListarFatura::class,
+    '/nova-fatura' => FormularioInsercaoFatura::class,
+    '/salvar-fatura' => PersistenciaFatura::class,
+    '/excluir-fatura' => ExclusaoFatura::class,
+    '/alterar-fatura' => FormularioEdicaoFatura::class
     
     
     

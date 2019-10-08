@@ -64,6 +64,7 @@
                 <div class="form-group col-md-4">
                     <label for="pessoa">Cartão</label>
                     <select name="cartao" id="cartao" class="custom-select">
+                        <option value="-1">Selecione</option>
                         <?php foreach ($cartoes as $cartao): ?>
                             <?php $selecionado = '' ?>
                             <?php 
@@ -83,6 +84,7 @@
                 <div class="form-group col-md-4">
                     <label for="pessoa">Categoria</label>
                     <select name="categoria" id="categoria" class="custom-select">
+                        <option value="-1">Selecione</option>
                         <?php foreach ($categorias as $categoria): ?>
                             <?php $selecionado = '' ?>
                             <?php 
@@ -100,6 +102,7 @@
                 <div class="form-group col-md-4">
                     <label for="pessoa">Comprador</label>
                     <select name="comprador" id="comprador" class="custom-select">
+                        <option value="-1">Selecione</option>
                         <?php foreach ($pessoas as $pessoa): ?>
                             <?php $selecionado = '' ?>
                             <?php 

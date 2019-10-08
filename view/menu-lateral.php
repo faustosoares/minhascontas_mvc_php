@@ -40,7 +40,7 @@
         <a id="pessoa" class="collapse-item" href="listar-pessoas">Pessoa</a>
         <a id="cartao" class="collapse-item" href="listar-cartoes">Cartão</a>
         <a id="compra" class="collapse-item" href="listar-compras">Compra</a>
-        <a class="collapse-item" href="cards.html">Fatura</a>
+        <a id="fatura" class="collapse-item" href="listar-faturas">Fatura</a>
         </div>
     </div>
     </li>
