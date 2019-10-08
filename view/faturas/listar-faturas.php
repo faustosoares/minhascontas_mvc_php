@@ -22,9 +22,9 @@ require __DIR__ . '/../inicio-html.php'; ?>
             <tr> 
                 <th class="pt-2 pb-2" scope="col">Mês/Ano</th>
                 <th class="pt-2 pb-2" scope="col">Cartão</th>
+                <th class="pt-2 pb-2" scope="col">Titular do Cartão</th>
                 <th class="pt-2 pb-2" scope="col">Dia de fechamento</th>
                 <th class="pt-2 pb-2" scope="col">Dia de vencimento</th>
-                <th class="pt-2 pb-2" scope="col">Titular do Cartão</th>
                 <th class="p-2" scope="col"></th>
             </tr>
         </thead>
@@ -33,9 +33,9 @@ require __DIR__ . '/../inicio-html.php'; ?>
         <tr class="linha-tabela">
             <td class="align-middle"><?= $fatura->getMes() . '/' . $fatura->getAno();?></td>
             <td class="align-middle"><?= $fatura->getCartao()->getBandeira() . ' - ' . $fatura->getCartao()->getInstituicaoFinanceira() ;?></td>
+            <td class="align-middle"><?= $fatura->getCartao()->getNomeTitular();?></td>
             <td class="align-middle"><?= $fatura->getDiaFechamento();?></td>
             <td class="align-middle"><?= $fatura->getDiaVencimento();?></td>
-            <td class="align-middle"><?= $fatura->getCartao()->getNomeTitular();?></td>
             <td class="controles-tabela">
                 <span>
                     <a href="/alterar-fatura?id=<?= $fatura->getId(); ?>" class="btn btn-info btn-sm">
