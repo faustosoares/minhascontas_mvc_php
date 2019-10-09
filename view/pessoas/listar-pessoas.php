@@ -23,7 +23,6 @@ require __DIR__ . '/../inicio-html.php'; ?>
                 <th class="pt-2 pb-2" scope="col">Nome</th>
                 <th class="pt-2 pb-2" scope="col">E-mail</th>
                 <th class="pt-2 pb-2" scope="col">Usuário</th>
-                <th class="pt-2 pb-2" scope="col">Senha</th>
                 <th class="p-2" scope="col"></th>
             </tr>
         </thead>
@@ -33,7 +32,6 @@ require __DIR__ . '/../inicio-html.php'; ?>
             <td class="align-middle"><?= $pessoa->getNome();?></td>
             <td class="align-middle"><?= $pessoa->getEmail();?></td>
             <td class="align-middle"><?= $pessoa->getNomeUsuario();?></td>
-            <td class="align-middle"><?= $pessoa->getSenhaUsuario();?></td>
             <td class="controles-tabela">
                 <span>
                     <a href="/alterar-pessoa?id=<?= $pessoa->getId(); ?>" class="btn btn-info btn-sm">

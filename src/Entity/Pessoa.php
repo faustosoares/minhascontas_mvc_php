@@ -118,4 +118,9 @@ class Pessoa
        
         return $this;
     }
+
+    public function senhaEstaCorreta(string $senhaPura): bool
+    {
+        return password_verify($senhaPura, $this->senhaUsuario);
+    }
 }

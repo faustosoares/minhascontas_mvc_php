@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>Minhas Contas</title>
+    <title>Login - Minhas Contas</title>
     <!-- Custom fonts for this template-->
     <link href="sb-bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -22,25 +22,24 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.css"/>
 
 </head>
-<body id="page-top">
+<body class="bg-gradient-primary">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+  <div class="container">
 
-    <?php include __DIR__ . '/menu-lateral.php'; ?>
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Login - Minhas Contas</h1>
+                  </div>
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
-
-      <?php include __DIR__ . '/menu-top.php'; ?>
-
-      <!-- Begin Page Content -->
-      <div class="container-fluid">
-
-     
      
      
 

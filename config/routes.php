@@ -1,6 +1,9 @@
 <?php
 
 
+use FBMS\Contas\Controller\Deslogar;
+use FBMS\Contas\Controller\RealizarLogin;
+use FBMS\Contas\Controller\FormularioLogin;
 use FBMS\Contas\Controller\Categoria\Exclusao;
 use FBMS\Contas\Controller\Fatura\ListarFatura;
 use FBMS\Contas\Controller\Cartao\ListarCartoes;
@@ -56,7 +59,11 @@ return [
     '/nova-fatura' => FormularioInsercaoFatura::class,
     '/salvar-fatura' => PersistenciaFatura::class,
     '/excluir-fatura' => ExclusaoFatura::class,
-    '/alterar-fatura' => FormularioEdicaoFatura::class
+    '/alterar-fatura' => FormularioEdicaoFatura::class,
+
+    '/login' => FormularioLogin::class,
+    '/realiza-login' => RealizarLogin::class,
+    '/logout' => Deslogar::class
     
     
     
