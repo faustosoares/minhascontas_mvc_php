@@ -3,6 +3,9 @@
 namespace FBMS\Contas\Entity;
 
 use FBMS\Contas\Entity\Cartao;
+use FBMS\Contas\Entity\Compra;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity
@@ -41,6 +44,19 @@ class Fatura
      */
     private $cartao;
 
+    /**
+     * @ManyToMany(targetEntity="Compra")
+     * @JoinTable(name="faturas_compras",
+     *      joinColumns={@JoinColumn(name="fatura_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="compra_id", referencedColumnName="id")}
+     *      )
+     */
+    private $compras;
+
+    public function __construct()
+    {
+        $this->compras = new ArrayCollection();
+    }
     
     public function getId(): int
     {
@@ -110,6 +126,26 @@ class Fatura
     public function setDiaVencimento(int $diaVencimento): self
     {
         $this->diaVencimento = $diaVencimento;
+
+        return $this;
+    }
+
+    public function getIdentificacao(): string
+    {
+        return $this->getMes() . '/' . $this->getAno() . '-' .
+             $this->getCartao()->getBandeira() . ' (' . $this->getCartao()->getNomeTitular() . ')';
+    }
+
+    public function getCompras(): Collection
+    {
+        return $this->compras;
+    }
+
+    public function setCompras(Compra $compra): self
+    {
+        //$this->compras = $compras;
+
+        $this->compras->add($compra);
 
         return $this;
     }

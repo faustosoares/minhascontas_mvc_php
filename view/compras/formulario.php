@@ -96,6 +96,22 @@
                         <?php endforeach ?>
                     </select>
                 </div>
+
+                <div class="form-group col-md-4">
+                    <label for="pessoa">Fatura</label>
+                    <select name="fatura" id="fatura" class="custom-select">
+                        <option value="-1">Selecione</option>
+                        <?php foreach ($faturas as $fatura): ?>
+                            <?php $selecionado = '' ?>
+                            <?php 
+                                if($fatura->getId() == $faturaAtual){
+                                    $selecionado = 'selected';
+                                }
+                            ?>
+                            <option <?= $selecionado ?> value="<?= $fatura->getId(); ?>"> <?= $fatura->getIdentificacao(); ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
             </div>
 
             <div class="form-row">

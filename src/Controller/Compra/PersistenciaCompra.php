@@ -7,6 +7,7 @@ use DateTime;
 use Nyholm\Psr7\Response;
 use FBMS\Contas\Entity\Cartao;
 use FBMS\Contas\Entity\Compra;
+use FBMS\Contas\Entity\Fatura;
 use FBMS\Contas\Entity\Pessoa;
 use FBMS\Contas\Entity\Categoria;
 use Psr\Http\Message\ResponseInterface;
@@ -81,6 +82,11 @@ class PersistenciaCompra implements RequestHandlerInterface
             FILTER_VALIDATE_INT
         );
 
+        $fatura_id = filter_var(
+            $request->getParsedBody()['fatura'],
+            FILTER_VALIDATE_INT
+        );
+
         //Tratando valor vindo do formulario
         $valorSemPonto = str_replace('.','',$valor);
         $valorEmFloat = floatval(str_replace(',','.',$valorSemPonto));
@@ -136,6 +142,11 @@ class PersistenciaCompra implements RequestHandlerInterface
             $this->defineMensagem($tipo, 'Compra inserida com sucesso');
         }
 
+        $faturaCompra = $this->entityManager->find(Fatura::class, $fatura_id);
+        
+        $faturaCompra->setCompras($compra);
+        $this->entityManager->merge($faturaCompra);
+        
         $this->entityManager->flush();
 
         return new Response(302, ['Location' => '/listar-compras']);

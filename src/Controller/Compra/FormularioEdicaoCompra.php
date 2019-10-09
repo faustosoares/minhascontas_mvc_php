@@ -6,9 +6,10 @@ use Nyholm\Psr7\Response;
 
 use FBMS\Contas\Entity\Cartao;
 use FBMS\Contas\Entity\Compra;
+use FBMS\Contas\Entity\Fatura;
 use FBMS\Contas\Entity\Pessoa;
-use FBMS\Contas\Entity\Categoria;
 
+use FBMS\Contas\Entity\Categoria;
 use Psr\Http\Message\ResponseInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use FBMS\Contas\Helper\FlashMessageTrait;
@@ -25,6 +26,7 @@ class FormularioEdicaoCompra implements RequestHandlerInterface
     private $pessoas;
     private $cartoes;
     private $categorias;
+    private $faturas;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -32,6 +34,7 @@ class FormularioEdicaoCompra implements RequestHandlerInterface
         $this->pessoas = $entityManager->getRepository(Pessoa::class)->findAll();
         $this->cartoes = $entityManager->getRepository(Cartao::class)->findAll();
         $this->categorias = $entityManager->getRepository(Categoria::class)->findAll();
+        $this->faturas = $entityManager->getRepository(Fatura::class)->findAll();
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -59,6 +62,7 @@ class FormularioEdicaoCompra implements RequestHandlerInterface
             'compradorAtual' => $compra->getPessoa()->getId(),
             'categoriaAtual' => $compra->getCategoria()->getId(),
             'cartaoAtual' => $compra->getCartao()->getId()
+
         ]);
 
         return new Response(200, [], $html);
