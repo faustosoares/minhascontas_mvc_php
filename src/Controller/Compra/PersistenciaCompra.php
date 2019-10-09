@@ -142,8 +142,8 @@ class PersistenciaCompra implements RequestHandlerInterface
             $this->defineMensagem($tipo, 'Compra inserida com sucesso');
         }
 
+        //Persistindo compra na fatura selecionada
         $faturaCompra = $this->entityManager->find(Fatura::class, $fatura_id);
-        
         $faturaCompra->setCompras($compra);
         $this->entityManager->merge($faturaCompra);
         

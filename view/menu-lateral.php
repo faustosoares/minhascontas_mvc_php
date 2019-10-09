@@ -82,9 +82,7 @@
         <a class="collapse-item" href="forgot-password.html">Compras por Pessoa</a>
         <div class="collapse-divider"></div>
         <h6 class="collapse-header">Tela</h6>
-        <a class="collapse-item" href="404.html">Pessoas</a>
         <a class="collapse-item" href="blank.html">Usuários</a>
-        <a class="collapse-item" href="blank.html">Cartões</a>
         <a class="collapse-item" href="blank.html">Faturas de Cartões</a>
         </div>
     </div>

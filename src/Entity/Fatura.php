@@ -45,11 +45,8 @@ class Fatura
     private $cartao;
 
     /**
-     * @ManyToMany(targetEntity="Compra")
-     * @JoinTable(name="faturas_compras",
-     *      joinColumns={@JoinColumn(name="fatura_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="compra_id", referencedColumnName="id")}
-     *      )
+     * @ManyToMany(targetEntity="Compra", inversedBy="faturas")
+     * @JoinTable(name="faturas_compras")
      */
     private $compras;
 

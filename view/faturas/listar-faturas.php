@@ -38,6 +38,11 @@ require __DIR__ . '/../inicio-html.php'; ?>
             <td class="align-middle"><?= $fatura->getDiaVencimento();?></td>
             <td class="controles-tabela">
                 <span>
+                    <a href="/visualizar-compras?id=<?= $fatura->getId(); ?>" class="btn btn-success btn-sm">
+                        <i class="fa fa-tag"></i>
+                        Compras
+                    </a>
+                    
                     <a href="/alterar-fatura?id=<?= $fatura->getId(); ?>" class="btn btn-info btn-sm">
                         <i class="fa fa-pen"></i>
                         Alterar

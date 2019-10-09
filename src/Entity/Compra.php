@@ -4,8 +4,11 @@ namespace FBMS\Contas\Entity;
 
 use DateTime;
 use FBMS\Contas\Entity\Cartao;
+use FBMS\Contas\Entity\Fatura;
 use FBMS\Contas\Entity\Pessoa;
 use FBMS\Contas\Entity\Categoria;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity
@@ -53,10 +56,15 @@ class Compra
      * @JoinColumn(name="pessoa_id", referencedColumnName="id")
      */
     private $pessoa;
+    /**
+     * @ManyToMany(targetEntity="Fatura", mappedBy="compras")
+     */    
+    private $faturas;
 
     public function __construct()
     {
         $this->data = new DateTime();
+        $this->faturas = new ArrayCollection();
     }
 
     public function getId(): int
@@ -168,6 +176,18 @@ class Compra
     public function setPessoa(Pessoa $pessoa): self
     {
         $this->pessoa = $pessoa;
+
+        return $this;
+    }
+
+    public function getFaturas(): Collection
+    {
+        return $this->faturas;
+    }
+   
+    public function setFaturas(Fatura $fatura): self
+    {
+        $this->faturas->add($fatura);
 
         return $this;
     }
