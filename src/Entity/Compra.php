@@ -185,9 +185,21 @@ class Compra
         return $this->faturas;
     }
    
-    public function setFaturas(Fatura $fatura): self
+    public function setFaturas(Collection $faturas): self
     {
+        $this->faturas = $faturas;
+
+        return $this;
+    }
+
+    public function addFatura(Fatura $fatura): self
+    {
+        if ($this->faturas->contains($fatura)) {
+            return $this;
+        }
+
         $this->faturas->add($fatura);
+        $fatura->addCompra($this);
 
         return $this;
     }

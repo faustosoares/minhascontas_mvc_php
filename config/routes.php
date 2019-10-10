@@ -29,6 +29,7 @@ use FBMS\Contas\Controller\Cartao\FormularioInsercaoCartao;
 use FBMS\Contas\Controller\Compra\FormularioInsercaoCompra;
 use FBMS\Contas\Controller\Fatura\FormularioInsercaoFatura;
 use FBMS\Contas\Controller\Pessoa\FormularioInsercaoPessoa;
+use FBMS\Contas\Controller\ComprasFatura\ListarComprasFatura;
 
 return [
     '/listar-categorias' => ListarCategorias::class,
@@ -63,7 +64,9 @@ return [
 
     '/login' => FormularioLogin::class,
     '/realiza-login' => RealizarLogin::class,
-    '/logout' => Deslogar::class
+    '/logout' => Deslogar::class,
+
+    '/listar-faturas/listar-compras-fatura' => ListarComprasFatura::class
     
     
     

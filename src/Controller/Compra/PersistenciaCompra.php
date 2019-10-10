@@ -144,7 +144,7 @@ class PersistenciaCompra implements RequestHandlerInterface
 
         //Persistindo compra na fatura selecionada
         $faturaCompra = $this->entityManager->find(Fatura::class, $fatura_id);
-        $faturaCompra->setCompras($compra);
+        $faturaCompra->addCompra($compra);
         $this->entityManager->merge($faturaCompra);
         
         $this->entityManager->flush();

@@ -138,11 +138,21 @@ class Fatura
         return $this->compras;
     }
 
-    public function setCompras(Compra $compra): self
+    public function setCompras(Collection $compras): self
     {
-        //$this->compras = $compras;
+        $this->compras = $compras;
+
+        return $this;
+    }
+
+    public function addCompra(Compra $compra): self
+    {
+        if ($this->compras->contains($compra)) {
+            return $this;
+        }
 
         $this->compras->add($compra);
+        $compra->addFatura($this);
 
         return $this;
     }
