@@ -42,19 +42,14 @@ class ListarComprasFatura implements RequestHandlerInterface
         $query = $this->em->createQuery($dql);
         $query->setParameter('id',$idFatura);
         $fatura = $query->getResult();
+        
 
         $this->comprasDaFatura = $fatura[0]->getCompras();
 
-        foreach ($this->comprasDaFatura as $c) {
-            echo $c->getDescricao();
-        }
-
-        //ATE ESTE PONTO ESTA TRAZENDO AS COMPRAS DESTA FATURA CORRETAMENTE
-
-
         $html = $this->renderizaHtml('comprasFatura/listar-compras-fatura.php', [
             'faturas' => $this->repositorioDeFaturas->findAll(),
-            'titulo' => 'Lista de Compras na Fatura',
+            'titulo' => 'Compras da fatura ' . $fatura[0]->getMes() .'/' . $fatura[0]->getAno() . 
+                        ' (' . $fatura[0]->getCartao()->getBandeira() . ' - ' . explode(' ', $fatura[0]->getCartao()->getNomeTitular())[0] . ')',
             'tituloEntidade' => 'comprasFatura',
             'comprasDaFatura' => $this->comprasDaFatura
         

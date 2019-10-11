@@ -36,11 +36,11 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Básico:</h6>
-        <a id="categoria" class="collapse-item" href="listar-categorias">Categoria</a>
-        <a id="pessoa" class="collapse-item" href="listar-pessoas">Pessoa</a>
-        <a id="cartao" class="collapse-item" href="listar-cartoes">Cartão</a>
-        <a id="compra" class="collapse-item" href="listar-compras">Compra</a>
-        <a id="fatura" class="collapse-item" href="listar-faturas">Fatura</a>
+        <a id="categoria" class="collapse-item" href="/listar-categorias">Categoria</a>
+        <a id="pessoa" class="collapse-item" href="/listar-pessoas">Pessoa</a>
+        <a id="cartao" class="collapse-item" href="/listar-cartoes">Cartão</a>
+        <a id="compra" class="collapse-item" href="/listar-compras">Compra</a>
+        <a id="fatura" class="collapse-item" href="/listar-faturas">Fatura</a>
         </div>
     </div>
     </li>
