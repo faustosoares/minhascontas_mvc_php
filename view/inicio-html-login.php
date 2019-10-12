@@ -18,6 +18,7 @@
     <!-- OLD -->
     <!-- <link rel="stylesheet" type="text/css" href="css/titulo.css">-->
     <link rel="stylesheet" type="text/css" href="css/tabela.css"> 
+    <link rel="stylesheet" type="text/css" href="css/login.css"> 
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/w/bs4/dt-1.10.18/datatables.min.css"/>
 
@@ -27,7 +28,7 @@
   <div class="container">
 
     <!-- Outer Row -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-end ">
       <div class="col-md-4">
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
