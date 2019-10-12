@@ -65,12 +65,24 @@ class PersistenciaPessoa implements RequestHandlerInterface
         $pessoa->setNome($nome);
         $pessoa->setEmail($email);
         $pessoa->setNomeUsuario($nomeUsuario);
-        $pessoa->setSenhaUsuario($senhaUsuario);
+        //$pessoa->setSenhaUsuario($senhaUsuario);
+        //$pessoa->setSenhaUsuario(password_hash($senhaUsuario,PASSWORD_ARGON2I));
         
         $id = filter_var(
             $request->getQueryParams()['id'],
             FILTER_VALIDATE_INT
         );
+        
+        if (!is_null($id) && $id !== false) {
+            $pessoaExistente = $this->entityManager->find(Pessoa::class,$id);
+            if ($pessoaExistente->getSenhaUsuario() == $senhaUsuario) {
+                $pessoa->setSenhaUsuario($senhaUsuario);
+            } else {
+                $pessoa->setSenhaUsuario(password_hash($senhaUsuario,PASSWORD_ARGON2I));    
+            }
+        } else {
+            $pessoa->setSenhaUsuario(password_hash($senhaUsuario,PASSWORD_ARGON2I));
+        }
 
         //Validação Campos Formulário
         $rotaRedirecionamentoValidacao = $this->definirRota($id);
